@@ -6,6 +6,8 @@ public class BallFactory {
         return new Ball[]{
                 bouncingBall(75, 50, BouncingBall.DOWN),
                 elasticBall(250, 100, Ball.DEFAULT_RADIUS, ElasticBall.SHRINK),
+                elasticBouncingBall(350, 200, Ball.DEFAULT_RADIUS,ElasticBouncingBall.DOWN,
+                        ElasticBouncingBall.SHRINK)
                 // bouncingElasticBall() --> Let's make a new ball!
         };
     }
@@ -17,4 +19,10 @@ public class BallFactory {
     public static Ball elasticBall(int centerX, int centerY, int radius, int direction) {
         return new ElasticBall(centerX, centerY, radius, direction);
     }
+
+    public static Ball elasticBouncingBall(int centerX, int centerY, int radius, int direction,int growthDirection) {
+        return new ElasticBouncingBall(centerX, centerY, radius, direction, growthDirection);
+    }
+
+
 }
