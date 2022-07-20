@@ -2,13 +2,14 @@ package com.tw.dojo.bouncingBall.model;
 
 public class BallFactory {
 
-    public static Ball[] all() {
+    public static Ball[] all()  {
         return new Ball[]{
-                bouncingBall(75, 50, BouncingBall.DOWN),
-                elasticBall(250, 100, Ball.DEFAULT_RADIUS, ElasticBall.SHRINK),
-                elasticBouncingBall(350, 200, Ball.DEFAULT_RADIUS,ElasticBouncingBall.DOWN,
-                        ElasticBouncingBall.SHRINK)
-                // bouncingElasticBall() --> Let's make a new ball!
+                bouncingBall(75, 50, Bounceable.DOWN),
+                elasticBall(250, 100, Ball.DEFAULT_RADIUS, Elasticity.SHRINK),
+               elasticBouncingBall(350, 200, Ball.DEFAULT_RADIUS,Bounceable.DOWN,
+                        Elasticity.SHRINK)
+                //bouncingElasticBall() --> Let's make a new ball!
+
         };
     }
 
@@ -21,6 +22,7 @@ public class BallFactory {
     }
 
     public static Ball elasticBouncingBall(int centerX, int centerY, int radius, int direction,int growthDirection) {
+        System.out.println("Inside elasticBouncingball constructor");
         return new ElasticBouncingBall(centerX, centerY, radius, direction, growthDirection);
     }
 
