@@ -8,7 +8,7 @@ import static com.tw.dojo.bouncingBall.BallTestHarness.*;
 public class BouncingBallTest {
     @Test
     public void shouldGoDown() {
-        Ball bouncingBall = BallFactory.bouncingBall(0, 100, Bounceable.DOWN);
+        Ball bouncingBall = BallFactory.bouncingBall(0, 100,BounceableBehaviour.DOWN);
 
         bouncingBall.update();
 
@@ -18,7 +18,7 @@ public class BouncingBallTest {
     @Test
     public void shouldGoUpAfterHittingTheBottom() {
         int theBottomEdge = BallWorld.BOX_HEIGHT - Ball.DEFAULT_RADIUS;
-        Ball bouncingBall = BallFactory.bouncingBall(0, theBottomEdge, Bounceable.DOWN);
+        Ball bouncingBall = BallFactory.bouncingBall(0, theBottomEdge, BounceableBehaviour.DOWN);
 
         bouncingBall.update();
 
@@ -27,7 +27,7 @@ public class BouncingBallTest {
 
     @Test
     public void shouldGoUp() {
-        Ball bouncingBall = BallFactory.bouncingBall(0, 100, Bounceable.UP);
+        Ball bouncingBall = BallFactory.bouncingBall(0, 100, BounceableBehaviour.UP);
 
         bouncingBall.update();
 
@@ -37,7 +37,7 @@ public class BouncingBallTest {
     @Test
     public void shouldGoDownAfterHittingTheTop() {
         int theTopEdge = Ball.DEFAULT_RADIUS;
-        Ball bouncingBall = BallFactory.bouncingBall(0, theTopEdge, Bounceable.UP);
+        Ball bouncingBall = BallFactory.bouncingBall(0, theTopEdge, BounceableBehaviour.UP);
 
         bouncingBall.update();
 

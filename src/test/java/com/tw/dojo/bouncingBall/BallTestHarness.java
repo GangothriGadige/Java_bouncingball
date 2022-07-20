@@ -24,10 +24,10 @@ public class BallTestHarness {
     }
 
     public static int oneStepInwardsFrom(int radius) {
-        return radius - Elasticity.GROWTH_RATE;
+        return radius - ElasticBehaviour.GROWTH_RATE;
     }
 
     public static int oneStepOutwardsFrom(int radius) {
-        return radius + Elasticity.GROWTH_RATE;
+        return radius + ElasticBehaviour.GROWTH_RATE;
     }
 }

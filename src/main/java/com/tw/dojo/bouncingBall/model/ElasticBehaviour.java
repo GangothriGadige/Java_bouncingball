@@ -1,34 +1,28 @@
 package com.tw.dojo.bouncingBall.model;
 
-public class Elasticity {
+public class ElasticBehaviour implements Behaviour{
     public static final int GROWTH_RATE = 2;
     protected static final int GROW = 1;
     protected static final int SHRINK = -1;
-    private final Ball ball;
     private int growthDirection;
 
-    public Elasticity(Ball ball, int growthDirection) {
-        this.ball = ball;
+    public ElasticBehaviour( int growthDirection) {
         this.growthDirection = growthDirection;
     }
 
-    public void update(){
-        growthDirection = reverseGrowthDirectionIfNecessary();
-        ball.radius = next();
-    }
-    private int reverseGrowthDirectionIfNecessary() {
-        if (growingTooBig() || shrinkingTooSmall()) {
+    private int reverseGrowthDirectionIfNecessary(Ball ball) {
+        if (growingTooBig(ball) || shrinkingTooSmall(ball)) {
             return switchDirection();
         }
 
         return this.growthDirection;
     }
 
-    private boolean shrinkingTooSmall() {
+    private boolean shrinkingTooSmall(Ball ball) {
         return ball.radius <= 0 && shrinking();
     }
 
-    private boolean growingTooBig() {
+    private boolean growingTooBig(Ball ball) {
         return ball.radius >= ball.DEFAULT_RADIUS && growing();
     }
 
@@ -36,7 +30,7 @@ public class Elasticity {
         return growing() ? SHRINK : GROW;
     }
 
-    private int next() {
+    private int next(Ball ball) {
         return ball.radius + (GROWTH_RATE * growthDirection);
     }
 
@@ -47,4 +41,10 @@ public class Elasticity {
     private boolean growing() {
         return growthDirection == GROW;
     }
+    @Override
+    public void behave(Ball ball) {
+        growthDirection = reverseGrowthDirectionIfNecessary(ball);
+        ball.radius = next(ball);
+    }
+
 }

@@ -7,7 +7,7 @@ import static com.tw.dojo.bouncingBall.BallTestHarness.*;
 public class ElasticBallTest {
     @Test
     public void shouldDecreaseRadius() {
-        Ball elasticBall = BallFactory.elasticBall(0, 0, 20, Elasticity.SHRINK);
+        Ball elasticBall = BallFactory.elasticBall(0, 0, 20, ElasticBehaviour.SHRINK);
 
         elasticBall.update();
 
@@ -16,7 +16,7 @@ public class ElasticBallTest {
 
     @Test
     public void shouldIncreaseRadiusAfterFullyShrinking() {
-        Ball elasticBall = BallFactory.elasticBall(0, 0, 0, Elasticity.SHRINK);
+        Ball elasticBall = BallFactory.elasticBall(0, 0, 0, ElasticBehaviour.SHRINK);
 
         elasticBall.update();
 
@@ -25,7 +25,7 @@ public class ElasticBallTest {
 
     @Test
     public void shouldIncreaseInSize() {
-        Ball elasticBall = BallFactory.elasticBall(250, 100, 20, Elasticity.GROW);
+        Ball elasticBall = BallFactory.elasticBall(250, 100, 20, ElasticBehaviour.GROW);
 
         elasticBall.update();
 
@@ -34,7 +34,7 @@ public class ElasticBallTest {
 
     @Test
     public void shouldDecreaseInSizeAfterFullyExpanding() {
-        Ball elasticBall = BallFactory.elasticBall(0, 0, Ball.DEFAULT_RADIUS, Elasticity.GROW);
+        Ball elasticBall = BallFactory.elasticBall(0, 0, Ball.DEFAULT_RADIUS, ElasticBehaviour.GROW);
 
         elasticBall.update();
 
